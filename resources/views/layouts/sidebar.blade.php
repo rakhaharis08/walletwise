@@ -48,7 +48,13 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="pemasukkan">
-                        <i class="ri-wallet-line"></i> <span>Pemasukkan</span>
+                        <i class="ri-wallet-line"></i> <span>Pemasukan</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="pengeluaran">
+                        <i class="ri-money-dollar-box-line"></i> <span>Pengeluaran</span>
                     </a>
                 </li>
 

@@ -16,12 +16,19 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 //Language Translation
 Route::get('/index', [App\Http\Controllers\DashboardController::class, 'index'])->name('index');
+Route::post('/index-filter', [App\Http\Controllers\DashboardController::class, 'index_filter'])->name('index');
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('index');
 
 //Pemasukan
-Route::get('/pemasukkan', [App\Http\Controllers\PemasukanController::class, 'index'])->name('pengeluran');
-Route::get('/tambah-pemasukan', [App\Http\Controllers\PemasukanController::class, 'create'])->name('pengeluran');
-Route::post('/tambah-pemasukan/store', [App\Http\Controllers\PemasukanController::class, 'store'])->name('pengeluran');
+Route::get('/pemasukkan', [App\Http\Controllers\PemasukanController::class, 'index'])->name('pemasukan');
+Route::get('/tambah-pemasukan', [App\Http\Controllers\PemasukanController::class, 'create'])->name('pemasukan');
+Route::post('/tambah-pemasukan/store', [App\Http\Controllers\PemasukanController::class, 'store'])->name('pemasukan');
+
+//Pengeluaran
+Route::get('/pengeluaran', [App\Http\Controllers\PengeluaranController::class, 'index'])->name('pengeluran');
+Route::get('/tambah-pengeluaran', [App\Http\Controllers\PengeluaranController::class, 'create'])->name('pengeluran');
+Route::post('/tambah-pengeluaran/store', [App\Http\Controllers\PengeluaranController::class, 'store'])->name('pengeluran');
+
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
