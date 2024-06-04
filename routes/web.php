@@ -15,12 +15,13 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 //Language Translation
-Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
+Route::get('/index', [App\Http\Controllers\DashboardController::class, 'index'])->name('index');
+Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('index');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
-
-//Pengeluaran
-Route::get('/pengeluaran', [App\Http\Controllers\HomeController::class, 'pengeluran'])->name('pengeluran');
+//Pemasukan
+Route::get('/pemasukkan', [App\Http\Controllers\PemasukanController::class, 'index'])->name('pengeluran');
+Route::get('/tambah-pemasukan', [App\Http\Controllers\PemasukanController::class, 'create'])->name('pengeluran');
+Route::post('/tambah-pemasukan/store', [App\Http\Controllers\PemasukanController::class, 'store'])->name('pengeluran');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

@@ -43,12 +43,12 @@ var linechartcustomerColors = getChartColorsArray("customer_impression_charts");
 if (linechartcustomerColors) {
     var options = {
         series: [{
-                name: "Orders",
+                name: "Pengeluaran",
                 type: "area",
                 data: [34, 65, 46, 68, 49, 61, 42, 44, 78, 52, 63, 67],
             },
             {
-                name: "Earnings",
+                name: "Pemasukkan",
                 type: "bar",
                 data: [
                     89.25, 98.58, 68.74, 108.87, 77.54, 84.03, 51.24, 28.57, 92.57, 42.36,
@@ -56,7 +56,7 @@ if (linechartcustomerColors) {
                 ],
             },
             {
-                name: "Refunds",
+                name: "Tagihan",
                 type: "line",
                 data: [8, 12, 7, 17, 21, 11, 5, 9, 7, 29, 12, 35],
             },
@@ -186,8 +186,8 @@ if (linechartcustomerColors) {
 var chartDonutBasicColors = getChartColorsArray("store-visits-source");
 if (chartDonutBasicColors) {
     var options = {
-        series: [44, 55, 41, 17, 15],
-        labels: ["Direct", "Social", "Email", "Other", "Referrals"],
+        series: [20,30,10,40],
+        labels: ["Pakaian", "Operasional", "Hiburan", "Lain Lain"],
         chart: {
             height: 333,
             type: "donut",
