@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Tambah Data Pengeluaran
+    Tambah Data Pemasukan
 @endsection
 @section('content')
     @component('components.breadcrumb')
@@ -8,7 +8,7 @@
             Forms
         @endslot
         @slot('title')
-            Pengeluaran
+            Tagihan
         @endslot
     @endcomponent
 
@@ -16,11 +16,11 @@
         <div class="col-xxl-6">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Tambah Data Pengeluaran</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">Tambah Data Tagihan</h4>
                 </div><!-- end card header -->
                 <div class="card-body">
                     <div class="live-preview">
-                        <form method="post" action="/tambah-pengeluaran/store" data-toggle="validator">
+                        <form method="post" action="/tambah-tagihan/store" data-toggle="validator">
                             {{ csrf_field() }}
                             <div class="mb-3">
                                 <label for="description" class="form-label">Deskripsi</label>
@@ -38,12 +38,12 @@
                                         </select>
                             </div>
                             <div class="mb-3">
-                                <label for="harga" class="form-label">Harga</label>
+                                <label for="harga" class="form-label">Nominal</label>
                                 <input type="text" name="harga" class="form-control" id="harga"
-                                    placeholder="Masukkan Harga Produk">
+                                    placeholder="Masukkan Nominal">
                             </div>
                             <div class="mb-3">
-                                <label for="harga" class="form-label">Tanggal Pembelian</label>
+                                <label for="harga" class="form-label">Jatuh Tempo</label>
                                 <input type="date" name="date" class="form-control" id="date">
                             </div>
                             <div class="text-end">

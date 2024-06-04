@@ -8,8 +8,11 @@ use App\Models\Pemasukan;
 class PemasukanController extends Controller
 {
     public function index(){
-        $pemasukan = Pemasukan::all();
-        return view('pemasukan.index',compact('pemasukan'));
+        $pemasukan = Pemasukan::orderByDesc('date')->get();
+        foreach ($pemasukan as $row) {
+            $id = $row->id;
+        }
+        return view('pemasukan.index',compact('pemasukan','id'));
     }
 
     public function create(){
@@ -32,4 +35,13 @@ class PemasukanController extends Controller
             return redirect('/pemasukan');
         }
     }	
+    
+    public function delete($id)
+	{
+        $pemasukan = Pemasukan::find($id);
+        $pemasukan->delete();
+    
+        \Session::flash('success.message', trans("Success To Delete"));
+        return redirect()->back();
+    }
 }

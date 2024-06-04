@@ -16,6 +16,7 @@ class DashboardController extends Controller
     
         $pemasukan = Pemasukan::whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])->sum('amount');
         $pengeluaran = Pengeluaran::whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])->sum('amount');
+        $defisit = ($pengeluaran / $pemasukan) * 100;
         $tagihan = Tagihan::sum('amount');
         $dompet = $pemasukan - $pengeluaran;
         $top_spending = Pengeluaran::whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])
@@ -43,7 +44,35 @@ class DashboardController extends Controller
         }
 
     
-        return view('index', compact('pemasukan','pengeluaran','tagihan','dompet','top_spending','top_income','recent_purchases','startofmonth','endofmonth','percentage_operasional'));
+        $belanjaAmount = Pengeluaran::where('category', 'Belanja')
+            ->whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])
+            ->sum('amount');        
+        if ($totalAmount == 0) {
+            $percentage_belanja = 0;
+        } else {
+            $percentage_belanja = ($belanjaAmount / $totalAmount) * 100;
+        }
+
+        
+        $hiburanAmount = Pengeluaran::where('category', 'Hiburan')
+            ->whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])
+            ->sum('amount');        
+        if ($totalAmount == 0) {
+            $percentage_hiburan = 0;
+        } else {
+            $percentage_hiburan = ($hiburanAmount / $totalAmount) * 100;
+        }
+        
+        $lainAmount = Pengeluaran::where('category', 'lain-lain ')
+            ->whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])
+            ->sum('amount');        
+        if ($totalAmount == 0) {
+            $percentage_lain = 0;
+        } else {
+            $percentage_lain = ($lainAmount / $totalAmount) * 100;
+        }
+    
+        return view('index', compact('pemasukan','pengeluaran','defisit','tagihan','dompet','top_spending','top_income','recent_purchases','startofmonth','endofmonth','percentage_operasional','percentage_belanja','percentage_hiburan','percentage_lain'));
     }
 
     public function index_filter(Request $request)
@@ -59,12 +88,60 @@ class DashboardController extends Controller
     
         $pemasukan = Pemasukan::whereBetween('date', [$tanggalAwal, $tanggalAkhir])->sum('amount');
         $pengeluaran = Pengeluaran::whereBetween('date', [$tanggalAwal, $tanggalAkhir])->sum('amount');
-        $tagihan = Tagihan::whereBetween('date', [$tanggalAwal, $tanggalAkhir])->sum('amount');
+
+        if ($pemasukan > 0) {
+            $defisit = ($pengeluaran / $pemasukan) * 100;
+        } else {
+            $defisit = 0;
+        }
+
+        $tagihan = Tagihan::sum('amount');
+        $defisit = number_format($defisit, 2, '.', ',');
         $dompet = $pemasukan - $pengeluaran;
         $top_spending = Pengeluaran::whereBetween('date', [$tanggalAwal, $tanggalAkhir])->orderBy('amount', 'desc')->limit(5)->get();
         $top_income = Pemasukan::whereBetween('date', [$tanggalAwal, $tanggalAkhir])->orderBy('amount', 'desc')->limit(5)->get();
         $recent_purchases = Pengeluaran::whereBetween('date', [$tanggalAwal, $tanggalAkhir])->orderBy('date', 'desc')->limit(5)->get();
+        
+        $totalAmount = Pengeluaran::whereBetween('date', [$tanggalAwal, $tanggalAkhir])->sum('amount');
+        
+        $operationalAmount = Pengeluaran::where('category', 'Operasional')
+            ->whereBetween('date', [$tanggalAwal, $tanggalAkhir])
+            ->sum('amount');        
+        if ($totalAmount == 0) {
+            $percentage_operasional = 0;
+        } else {
+            $percentage_operasional = ($operationalAmount / $totalAmount) * 100;
+        }
+
     
-        return view('index', compact('pemasukan', 'pengeluaran', 'tagihan', 'dompet', 'top_spending', 'top_income', 'recent_purchases','startofmonth','endofmonth'));
+        $belanjaAmount = Pengeluaran::where('category', 'Belanja')
+        ->whereBetween('date', [$tanggalAwal, $tanggalAkhir])
+            ->sum('amount');        
+        if ($totalAmount == 0) {
+            $percentage_belanja = 0;
+        } else {
+            $percentage_belanja = ($belanjaAmount / $totalAmount) * 100;
+        }
+
+        
+        $hiburanAmount = Pengeluaran::where('category', 'Hiburan')
+        ->whereBetween('date', [$tanggalAwal, $tanggalAkhir])
+            ->sum('amount');        
+        if ($totalAmount == 0) {
+            $percentage_hiburan = 0;
+        } else {
+            $percentage_hiburan = ($hiburanAmount / $totalAmount) * 100;
+        }
+        
+        $lainAmount = Pengeluaran::where('category', 'lain-lain ')
+        ->whereBetween('date', [$tanggalAwal, $tanggalAkhir])
+            ->sum('amount');        
+        if ($totalAmount == 0) {
+            $percentage_lain = 0;
+        } else {
+            $percentage_lain = ($lainAmount / $totalAmount) * 100;
+        }
+
+        return view('index', compact('pemasukan', 'pengeluaran','defisit', 'tagihan', 'dompet', 'top_spending', 'top_income', 'recent_purchases','startofmonth','endofmonth','percentage_operasional','percentage_belanja','percentage_hiburan','percentage_lain'));
     }
 }

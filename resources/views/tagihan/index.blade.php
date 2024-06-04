@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Data Pengeluaran
+    Data Pemasukkan
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ URL::asset('build/libs/gridjs/theme/mermaid.min.css') }}">
@@ -12,7 +12,7 @@
             Tables
         @endslot
         @slot('title')
-            Pengeluaran
+            Tagihan
         @endslot
     @endcomponent
     @if(Session::has('success.message'))
@@ -34,12 +34,12 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0 flex-grow-1">Detail Pengeluaran</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">Detail Tagihan</h4>
                     
                 </div>
 
                 <div class="card-body">
-                        <a href="tambah-pengeluaran"><button type="button" class="btn btn-primary waves-effect waves-light">+ Data Pengeluaran</button></a><br><br>
+                        <a href="tambah-tagihan"><button type="button" class="btn btn-primary waves-effect waves-light">+ Data Tagihan</button></a><br><br>
                     <div id="table-gridjs"></div>
                 </div><!-- end card-body -->
             </div><!-- end card -->
@@ -66,7 +66,7 @@
                 },
                 {
                     name: 'Deskripsi',
-                    width: '250px',
+                    width: '150px',
                 },
                 {
                     name: 'Kategori',
@@ -77,13 +77,22 @@
                     width: '150px',
                 },
                 {
-                    name: 'Tanggal',
-                    width: '180px',
+                    name: 'Jatuh Tempo',
+                    width: '100px',
+                },
+                {
+                    name: 'Status',
+                    width: '80px',
                 },
                 {
                     name: 'Actions',
+                    width: '100px',
+                    formatter: (cell) => cell === '-' ? '-' : gridjs.html('<a href="hapus-tagihan/' + cell + '"><button class="btn btn-primary waves-effect waves-light">Hapus</button></a>')
+                },
+                {
+                    name: 'Transaksi',
                     width: '150px',
-                    formatter: (cell) => gridjs.html('<a href="hapus-pengeluaran/' + cell + '"><button class="btn btn-primary waves-effect waves-light">Hapus</button></a>')
+                    formatter: (cell) => cell === '-' ? '-' : gridjs.html('<a href="bayar-tagihan/' + cell + '"><button class="btn btn-primary waves-effect waves-light">Bayar</button></a>')
                 },
             ],
             pagination: {
@@ -92,8 +101,12 @@
             sort: true,
             search: true,
             data: [
-                @foreach($pengeluaran as $row)
-                [counter++,"{{$row->description}}","{{$row->category}}","Rp. {{number_format($row->amount)}}","{{$row->date}}", "{{$row->id}}"],
+                @foreach($tagihan as $row)
+                    @if($row->status == 0)
+                        [counter++, "{{$row->description}}", "{{$row->category}}", "Rp. {{number_format($row->amount)}}", "{{$row->date}}", "Belum Lunas", "{{$row->id}}", "{{$row->id}}"],
+                    @else
+                        [counter++, "{{$row->description}}", "{{$row->category}}", "Rp. {{number_format($row->amount)}}", "{{$row->date}}", "Lunas", "-", "-"],
+                    @endif
                 @endforeach
             ]
         }).render(document.getElementById("table-gridjs"));

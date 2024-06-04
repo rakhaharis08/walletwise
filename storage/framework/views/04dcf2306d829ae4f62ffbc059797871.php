@@ -1,13 +1,13 @@
-@extends('layouts.master')
-@section('title')
+
+<?php $__env->startSection('title'); ?>
 Dashboard WalletWise
-@endsection
-@section('css')
-<link href="{{ URL::asset('build/libs/jsvectormap/css/jsvectormap.min.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ URL::asset('build/libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" type="text/css" />
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+<link href="<?php echo e(URL::asset('build/libs/jsvectormap/css/jsvectormap.min.css')); ?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo e(URL::asset('build/libs/swiper/swiper-bundle.min.css')); ?>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" type="text/css">
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <div class="row">
     <div class="col">
 
@@ -23,7 +23,8 @@ Dashboard WalletWise
                                 <div class="row g-3 mb-0 align-items-center">
                                     <div class="col-sm-auto">
                                         <form method="post" action="/index-filter">
-                                            {{ csrf_field() }}
+                                            <?php echo e(csrf_field()); ?>
+
                                             <div class="input-group">
                                                 <input type="text" 
                                                     name="filter" 
@@ -31,7 +32,7 @@ Dashboard WalletWise
                                                     data-provider="flatpickr" 
                                                     data-range-date="true" 
                                                     data-date-format="d M, Y" 
-                                                    placeholder="{{ $startofmonth }} to {{ $endofmonth }}">
+                                                    placeholder="<?php echo e($startofmonth); ?> to <?php echo e($endofmonth); ?>">
                                                 <div class="input-group-text bg-primary border-primary text-white">
                                                     <i class="ri-calendar-2-line"></i>
                                                 </div>
@@ -66,7 +67,7 @@ Dashboard WalletWise
                             </div>
                             <div class="d-flex align-items-end justify-content-between mt-4">
                                 <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="{{$dompet}}">0</span>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="<?php echo e($dompet); ?>">0</span>
                                     </h4>
                                 </div>
                             </div>
@@ -86,7 +87,7 @@ Dashboard WalletWise
                             </div>
                             <div class="d-flex align-items-end justify-content-between mt-4">
                                 <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="{{$pemasukan}}">0</span></h4>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="<?php echo e($pemasukan); ?>">0</span></h4>
                                     <a href="" class="text-decoration-underline">Lihat Data <br>Pemasukan</a>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
@@ -111,7 +112,7 @@ Dashboard WalletWise
                             </div>
                             <div class="d-flex align-items-end justify-content-between mt-4">
                                 <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="{{$pengeluaran}}">0</span>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="<?php echo e($pengeluaran); ?>">0</span>
                                     </h4>
                                     <a href="" class="text-decoration-underline">Lihat Data Pengeluaran</a>
                                 </div>
@@ -137,7 +138,7 @@ Dashboard WalletWise
                             </div>
                             <div class="d-flex align-items-end justify-content-between mt-4">
                                 <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="{{$tagihan}}">0</span>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="<?php echo e($tagihan); ?>">0</span>
                                     </h4>
                                     <a href="" class="text-decoration-underline">Lihat Data <br>Tagihan</a>
                                 </div>
@@ -164,21 +165,21 @@ Dashboard WalletWise
                             <div class="row g-0 text-center">
                                 <div class="col-6 col-sm-3">
                                     <div class="p-3 border border-dashed border-start-0">
-                                        <h5 class="mb-1">RP.<span class="counter-value" data-target="{{$pemasukan/1000000}}">0</span> Juta</h5>
+                                        <h5 class="mb-1">RP.<span class="counter-value" data-target="<?php echo e($pemasukan/1000000); ?>">0</span> Juta</h5>
                                         <p class="text-muted mb-0">Pemasukan</p>
                                     </div>
                                 </div>
                                 <!--end col-->
                                 <div class="col-6 col-sm-3">
                                     <div class="p-3 border border-dashed border-start-0">
-                                        <h5 class="mb-1">RP.<span class="counter-value" data-target="{{$pengeluaran/1000000}}">0</span> Juta</h5>
+                                        <h5 class="mb-1">RP.<span class="counter-value" data-target="<?php echo e($pengeluaran/1000000); ?>">0</span> Juta</h5>
                                         <p class="text-muted mb-0">Pengeluaran</p>
                                     </div>
                                 </div>
                                 <!--end col-->
                                 <div class="col-6 col-sm-3">
                                     <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                        <h5 class="mb-1 text-success"><span class="counter-value" data-target="{{round($defisit);}}">0</span>%</h5>
+                                        <h5 class="mb-1 text-success"><span class="counter-value" data-target="<?php echo e(round($defisit)); ?>">0</span>%</h5>
                                         <p class="text-muted mb-0">Defisit</p>
                                     </div>
                                 </div>
@@ -207,7 +208,7 @@ Dashboard WalletWise
                             <div class="table-responsive table-card">
                                 <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                                     <tbody>
-                                        @foreach($top_spending as $row)
+                                        <?php $__currentLoopData = $top_spending; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -215,21 +216,21 @@ Dashboard WalletWise
                                                         <img src="https://static.vecteezy.com/system/resources/previews/007/372/197/non_2x/bag-icon-shopping-bag-icon-bag-logo-bag-illustration-free-vector.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="{{ URL::asset('/apps-ecommerce-product-details') }}" class="text-reset">{{$row->description}}</a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="<?php echo e(URL::asset('/apps-ecommerce-product-details')); ?>" class="text-reset"><?php echo e($row->description); ?></a></h5>
                                                         <span class="text-muted">1 May 2024</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">RP.{{number_format($row->amount)}}</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">RP.<?php echo e(number_format($row->amount)); ?></h5>
                                                 <span class="text-muted">Amount</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">{{$row->category}}</h5>
+                                                <h5 class="fs-14 my-1 fw-normal"><?php echo e($row->category); ?></h5>
                                                 <span class="text-muted">Category</span>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -275,24 +276,24 @@ Dashboard WalletWise
                             <div class="table-responsive table-card">
                                 <table class="table table-centered table-hover align-middle table-nowrap mb-0">
                                     <tbody>
-                                        @foreach($top_income as $row)
+                                        <?php $__currentLoopData = $top_income; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div>
-                                                        <h5 class="fs-14 my-1 fw-medium"><a href="{{ URL::asset('/apps-ecommerce-seller-details') }}" class="text-reset">{{$row->description}}</a>
+                                                        <h5 class="fs-14 my-1 fw-medium"><a href="<?php echo e(URL::asset('/apps-ecommerce-seller-details')); ?>" class="text-reset"><?php echo e($row->description); ?></a>
                                                         </h5>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="text-muted">{{$row->category}}</span>
+                                                <span class="text-muted"><?php echo e($row->category); ?></span>
                                             </td>
                                             <td>
-                                                <span class="text-muted">RP.{{$row->amount/1000000}} Juta</span>
+                                                <span class="text-muted">RP.<?php echo e($row->amount/1000000); ?> Juta</span>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <!-- end -->
                                     </tbody>
                                 </table><!-- end table -->
@@ -362,28 +363,29 @@ Dashboard WalletWise
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @php
+                                    <?php
                                         $no = 1;
-                                    @endphp
-                                    @foreach($recent_purchases as $row)
+                                    ?>
+                                    <?php $__currentLoopData = $recent_purchases; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
                                             <td>
-                                                {{$no++}}
+                                                <?php echo e($no++); ?>
+
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1">{{ $row->description }}</div>
+                                                    <div class="flex-grow-1"><?php echo e($row->description); ?></div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="text-success">RP.{{ number_format($row->amount) }}</span>
+                                                <span class="text-success">RP.<?php echo e(number_format($row->amount)); ?></span>
                                             </td>
-                                            <td>{{ $row->category }}</td>
+                                            <td><?php echo e($row->category); ?></td>
                                             <td>
                                                 <span class="badge badge-soft-success">Paid</span>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                         <!-- end tr -->
                                     </tbody><!-- end tbody -->
@@ -431,14 +433,14 @@ Dashboard WalletWise
                                             collection</span></h6>
                                     <p class="text-muted mb-1">By Nesta Technologies</p>
                                     <div class="d-inline-flex gap-2 border border-dashed p-2 mb-2">
-                                        <a href="{{ URL::asset('/apps-ecommerce-product-details') }}" class="bg-light rounded p-1">
-                                            <img src="{{ URL::asset('build/images/products/img-8.png') }}" alt="" class="img-fluid d-block" />
+                                        <a href="<?php echo e(URL::asset('/apps-ecommerce-product-details')); ?>" class="bg-light rounded p-1">
+                                            <img src="<?php echo e(URL::asset('build/images/products/img-8.png')); ?>" alt="" class="img-fluid d-block" />
                                         </a>
-                                        <a href="{{ URL::asset('/apps-ecommerce-product-details') }}" class="bg-light rounded p-1">
-                                            <img src="{{ URL::asset('build/images/products/img-2.png') }}" alt="" class="img-fluid d-block" />
+                                        <a href="<?php echo e(URL::asset('/apps-ecommerce-product-details')); ?>" class="bg-light rounded p-1">
+                                            <img src="<?php echo e(URL::asset('build/images/products/img-2.png')); ?>" alt="" class="img-fluid d-block" />
                                         </a>
-                                        <a href="{{ URL::asset('/apps-ecommerce-product-details') }}" class="bg-light rounded p-1">
-                                            <img src="{{ URL::asset('build/images/products/img-10.png') }}" alt="" class="img-fluid d-block" />
+                                        <a href="<?php echo e(URL::asset('/apps-ecommerce-product-details')); ?>" class="bg-light rounded p-1">
+                                            <img src="<?php echo e(URL::asset('build/images/products/img-10.png')); ?>" alt="" class="img-fluid d-block" />
                                         </a>
                                     </div>
                                     <p class="mb-0 text-muted"><small>9:47 PM Yesterday</small></p>
@@ -446,7 +448,7 @@ Dashboard WalletWise
                             </div>
                             <div class="acitivity-item py-3 d-flex">
                                 <div class="flex-shrink-0">
-                                    <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="avatar-xs rounded-circle acitivity-avatar">
+                                    <img src="<?php echo e(URL::asset('build/images/users/avatar-2.jpg')); ?>" alt="" class="avatar-xs rounded-circle acitivity-avatar">
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <h6 class="mb-1 lh-base">Natasha Carey have liked the products
@@ -465,7 +467,7 @@ Dashboard WalletWise
                                     </div>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h6 class="mb-1 lh-base">Today offers by <a href="{{ URL::asset('/apps-ecommerce-seller-details') }}" class="link-secondary">Digitech
+                                    <h6 class="mb-1 lh-base">Today offers by <a href="<?php echo e(URL::asset('/apps-ecommerce-seller-details')); ?>" class="link-secondary">Digitech
                                             Galaxy</a></h6>
                                     <p class="text-muted mb-2">Offer is valid on orders of Rs.500 Or
                                         above for selected products only.</p>
@@ -520,7 +522,7 @@ Dashboard WalletWise
                             </div>
                             <div class="acitivity-item d-flex">
                                 <div class="flex-shrink-0">
-                                    <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="avatar-xs rounded-circle acitivity-avatar" />
+                                    <img src="<?php echo e(URL::asset('build/images/users/avatar-3.jpg')); ?>" alt="" class="avatar-xs rounded-circle acitivity-avatar" />
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <h6 class="mb-1 lh-base">Frank Hook Commented</h6>
@@ -584,7 +586,7 @@ Dashboard WalletWise
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 avatar-sm">
                                                     <div class="avatar-title bg-light rounded">
-                                                        <img src="{{ URL::asset('build/images/companies/img-1.png') }}" alt="" height="30">
+                                                        <img src="<?php echo e(URL::asset('build/images/companies/img-1.png')); ?>" alt="" height="30">
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1 ms-3">
@@ -614,7 +616,7 @@ Dashboard WalletWise
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0">
-                                                    <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="avatar-sm rounded">
+                                                    <img src="<?php echo e(URL::asset('build/images/users/avatar-3.jpg')); ?>" alt="" class="avatar-sm rounded">
                                                 </div>
                                                 <div class="flex-grow-1 ms-3">
                                                     <div>
@@ -644,7 +646,7 @@ Dashboard WalletWise
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 avatar-sm">
                                                     <div class="avatar-title bg-light rounded">
-                                                        <img src="{{ URL::asset('build/images/companies/img-8.png') }}" alt="" height="30">
+                                                        <img src="<?php echo e(URL::asset('build/images/companies/img-8.png')); ?>" alt="" height="30">
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1 ms-3">
@@ -674,7 +676,7 @@ Dashboard WalletWise
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0">
-                                                    <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="avatar-sm rounded">
+                                                    <img src="<?php echo e(URL::asset('build/images/users/avatar-2.jpg')); ?>" alt="" class="avatar-sm rounded">
                                                 </div>
                                                 <div class="flex-grow-1 ms-3">
                                                     <div>
@@ -835,7 +837,7 @@ Dashboard WalletWise
 
                     <div class="card sidebar-alert bg-light border-0 text-center mx-4 mb-0 mt-3">
                         <div class="card-body">
-                            <img src="{{ URL::asset('build/images/giftbox.png') }}" alt="">
+                            <img src="<?php echo e(URL::asset('build/images/giftbox.png')); ?>" alt="">
                             <div class="mt-4">
                                 <h5>Invite New Seller</h5>
                                 <p class="text-muted lh-base">Refer a new seller to us and earn $100
@@ -852,13 +854,13 @@ Dashboard WalletWise
 
     </div> <!-- end col -->
 </div>
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
 <!-- apexcharts -->
-<script src="{{ URL::asset('build/libs/apexcharts/apexcharts.min.js') }}"></script>
-<script src="{{ URL::asset('build/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
-<script src="{{ URL::asset('build/libs/jsvectormap/maps/world-merc.js') }}"></script>
-<script src="{{ URL::asset('build/libs/swiper/swiper-bundle.min.js')}}"></script>
+<script src="<?php echo e(URL::asset('build/libs/apexcharts/apexcharts.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('build/libs/jsvectormap/js/jsvectormap.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('build/libs/jsvectormap/maps/world-merc.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('build/libs/swiper/swiper-bundle.min.js')); ?>"></script>
 <!-- dashboard init -->
 <script>
 function getChartColorsArray(chartId) {
@@ -1040,7 +1042,7 @@ if (linechartcustomerColors) {
 var chartDonutBasicColors = getChartColorsArray("store-visits-source");
 if (chartDonutBasicColors) {
     var options = {
-        series: [{{$percentage_belanja}},{{$percentage_operasional}},{{$percentage_hiburan}},{{$percentage_lain}}],
+        series: [<?php echo e($percentage_belanja); ?>,<?php echo e($percentage_operasional); ?>,<?php echo e($percentage_hiburan); ?>,<?php echo e($percentage_lain); ?>],
         labels: ["Belanja", "Operasional", "Hiburan", "Lain Lain"],
         chart: {
             height: 333,
@@ -1197,7 +1199,7 @@ window.addEventListener("load", function () {
     }
 });
 </script>
-<script src="{{ URL::asset('build/js/app.js') }}"></script>
+<script src="<?php echo e(URL::asset('build/js/app.js')); ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1207,4 +1209,6 @@ window.addEventListener("load", function () {
     });
 });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\rakha\OneDrive\Documents\walletwise\resources\views/index.blade.php ENDPATH**/ ?>

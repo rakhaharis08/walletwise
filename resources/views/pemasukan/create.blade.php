@@ -8,7 +8,7 @@
             Forms
         @endslot
         @slot('title')
-            Form layout
+            Pemasukan
         @endslot
     @endcomponent
 

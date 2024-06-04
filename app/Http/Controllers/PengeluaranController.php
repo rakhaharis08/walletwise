@@ -8,7 +8,7 @@ use App\Models\Pengeluaran;
 class PengeluaranController extends Controller
 {
     public function index(){
-        $pengeluaran = Pengeluaran::all();
+        $pengeluaran = Pengeluaran::orderByDesc('date')->get();
         return view('pengeluaran.index',compact('pengeluaran'));
     }
 
@@ -32,4 +32,13 @@ class PengeluaranController extends Controller
             return redirect('/pengeluaran');
         }
     }	
+
+    public function delete($id)
+	{
+        $pengeluaran = Pengeluaran::find($id);
+        $pengeluaran->delete();
+    
+        \Session::flash('success.message', trans("Success To Delete"));
+        return redirect()->back();
+    }
 }

@@ -1,27 +1,28 @@
-@extends('layouts.master')
-@section('title')
-    Tambah Data Pengeluaran
-@endsection
-@section('content')
-    @component('components.breadcrumb')
-        @slot('li_1')
+
+<?php $__env->startSection('title'); ?>
+    Tambah Data Pemasukan
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+    <?php $__env->startComponent('components.breadcrumb'); ?>
+        <?php $__env->slot('li_1'); ?>
             Forms
-        @endslot
-        @slot('title')
-            Pengeluaran
-        @endslot
-    @endcomponent
+        <?php $__env->endSlot(); ?>
+        <?php $__env->slot('title'); ?>
+            Tagihan
+        <?php $__env->endSlot(); ?>
+    <?php echo $__env->renderComponent(); ?>
 
     <div class="row">
         <div class="col-xxl-6">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Tambah Data Pengeluaran</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">Tambah Data Tagihan</h4>
                 </div><!-- end card header -->
                 <div class="card-body">
                     <div class="live-preview">
-                        <form method="post" action="/tambah-pengeluaran/store" data-toggle="validator">
-                            {{ csrf_field() }}
+                        <form method="post" action="/tambah-tagihan/store" data-toggle="validator">
+                            <?php echo e(csrf_field()); ?>
+
                             <div class="mb-3">
                                 <label for="description" class="form-label">Deskripsi</label>
                                 <input type="text" name="deskripsi" class="form-control" id="description"
@@ -38,12 +39,12 @@
                                         </select>
                             </div>
                             <div class="mb-3">
-                                <label for="harga" class="form-label">Harga</label>
+                                <label for="harga" class="form-label">Nominal</label>
                                 <input type="text" name="harga" class="form-control" id="harga"
-                                    placeholder="Masukkan Harga Produk">
+                                    placeholder="Masukkan Nominal">
                             </div>
                             <div class="mb-3">
-                                <label for="harga" class="form-label">Tanggal Pembelian</label>
+                                <label for="harga" class="form-label">Jatuh Tempo</label>
                                 <input type="date" name="date" class="form-control" id="date">
                             </div>
                             <div class="text-end">
@@ -55,8 +56,10 @@
             </div>
         </div>
     <!--end row-->
-@endsection
-@section('script')
-    <script src="{{ URL::asset('build/libs/prismjs/prism.js') }}"></script>
-    <script src="{{ URL::asset('build/js/app.js') }}"></script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(URL::asset('build/libs/prismjs/prism.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('build/js/app.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\rakha\OneDrive\Documents\walletwise\resources\views/tagihan/create.blade.php ENDPATH**/ ?>

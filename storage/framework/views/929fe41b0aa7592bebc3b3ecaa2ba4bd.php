@@ -1,16 +1,16 @@
-@extends('layouts.master')
-@section('title')
+
+<?php $__env->startSection('title'); ?>
     Tambah Data Pengeluaran
-@endsection
-@section('content')
-    @component('components.breadcrumb')
-        @slot('li_1')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+    <?php $__env->startComponent('components.breadcrumb'); ?>
+        <?php $__env->slot('li_1'); ?>
             Forms
-        @endslot
-        @slot('title')
+        <?php $__env->endSlot(); ?>
+        <?php $__env->slot('title'); ?>
             Pengeluaran
-        @endslot
-    @endcomponent
+        <?php $__env->endSlot(); ?>
+    <?php echo $__env->renderComponent(); ?>
 
     <div class="row">
         <div class="col-xxl-6">
@@ -21,7 +21,8 @@
                 <div class="card-body">
                     <div class="live-preview">
                         <form method="post" action="/tambah-pengeluaran/store" data-toggle="validator">
-                            {{ csrf_field() }}
+                            <?php echo e(csrf_field()); ?>
+
                             <div class="mb-3">
                                 <label for="description" class="form-label">Deskripsi</label>
                                 <input type="text" name="deskripsi" class="form-control" id="description"
@@ -55,8 +56,10 @@
             </div>
         </div>
     <!--end row-->
-@endsection
-@section('script')
-    <script src="{{ URL::asset('build/libs/prismjs/prism.js') }}"></script>
-    <script src="{{ URL::asset('build/js/app.js') }}"></script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(URL::asset('build/libs/prismjs/prism.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('build/js/app.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\rakha\OneDrive\Documents\walletwise\resources\views/pengeluaran/create.blade.php ENDPATH**/ ?>
