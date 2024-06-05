@@ -9,10 +9,7 @@ class PemasukanController extends Controller
 {
     public function index(){
         $pemasukan = Pemasukan::orderByDesc('date')->get();
-        foreach ($pemasukan as $row) {
-            $id = $row->id;
-        }
-        return view('pemasukan.index',compact('pemasukan','id'));
+        return view('pemasukan.index',compact('pemasukan'));
     }
 
     public function create(){

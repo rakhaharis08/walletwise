@@ -31,9 +31,9 @@
                                 <label for="description" class="form-label">Kategori</label>
                                         <select class="form-control" id="choices-single-no-sorting"
                                             name="kategori" data-choices data-choices-sorting-false>
-                                            <option value="operasional">Operasional</option>
-                                            <option value="hiburan">Hiburan</option>
-                                            <option value="belanja">Belanja</option>
+                                            <option value="Operasional">Operasional</option>
+                                            <option value="Hiburan">Hiburan</option>
+                                            <option value="Belanja">Belanja</option>
                                             <option value="lain-lain">Lain-Lain</option>
                                         </select>
                             </div>

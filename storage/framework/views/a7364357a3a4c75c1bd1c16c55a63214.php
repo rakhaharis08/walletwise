@@ -4,6 +4,7 @@ Dashboard WalletWise
 <?php $__env->startSection('css'); ?>
 <link href="<?php echo e(URL::asset('build/libs/jsvectormap/css/jsvectormap.min.css')); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo e(URL::asset('build/libs/swiper/swiper-bundle.min.css')); ?>" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" type="text/css">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <div class="row">
@@ -86,7 +87,7 @@ Dashboard WalletWise
                             <div class="d-flex align-items-end justify-content-between mt-4">
                                 <div>
                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="<?php echo e($pemasukan); ?>">0</span></h4>
-                                    <a href="" class="text-decoration-underline">Lihat Data <br>Pemasukan</a>
+                                    <a href="pemasukkan" class="text-decoration-underline">Lihat Data <br>Pemasukan</a>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-soft-primary rounded fs-3">
@@ -112,7 +113,7 @@ Dashboard WalletWise
                                 <div>
                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="<?php echo e($pengeluaran); ?>">0</span>
                                     </h4>
-                                    <a href="" class="text-decoration-underline">Lihat Data Pengeluaran</a>
+                                    <a href="pengeluaran" class="text-decoration-underline">Lihat Data Pengeluaran</a>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-soft-primary rounded fs-3">
@@ -138,7 +139,7 @@ Dashboard WalletWise
                                 <div>
                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="<?php echo e($tagihan); ?>">0</span>
                                     </h4>
-                                    <a href="" class="text-decoration-underline">Lihat Data <br>Tagihan</a>
+                                    <a href="tagihan" class="text-decoration-underline">Lihat Data <br>Tagihan</a>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-soft-primary rounded fs-3">
@@ -177,7 +178,7 @@ Dashboard WalletWise
                                 <!--end col-->
                                 <div class="col-6 col-sm-3">
                                     <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                        <h5 class="mb-1 text-success"><span class="counter-value" data-target="40">0</span>%</h5>
+                                        <h5 class="mb-1 text-success"><span class="counter-value" data-target="<?php echo e(round($defisit)); ?>">0</span>%</h5>
                                         <p class="text-muted mb-0">Defisit</p>
                                     </div>
                                 </div>
@@ -296,34 +297,6 @@ Dashboard WalletWise
                                     </tbody>
                                 </table><!-- end table -->
                             </div>
-
-                            <div class="align-items-center mt-4 pt-2 justify-content-between row text-center text-sm-start">
-                                <div class="col-sm">
-                                    <div class="text-muted">
-                                        Showing <span class="fw-semibold">5</span> of <span class="fw-semibold">25</span> Results
-                                    </div>
-                                </div>
-                                <div class="col-sm-auto  mt-3 mt-sm-0">
-                                    <ul class="pagination pagination-separated pagination-sm mb-0 justify-content-center">
-                                        <li class="page-item disabled">
-                                            <a href="#" class="page-link">←</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a href="#" class="page-link">1</a>
-                                        </li>
-                                        <li class="page-item active">
-                                            <a href="#" class="page-link">2</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a href="#" class="page-link">3</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a href="#" class="page-link">→</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
                         </div> <!-- .card-body-->
                     </div> <!-- .card-->
                 </div> <!-- .col-->
@@ -861,15 +834,6 @@ Dashboard WalletWise
 <script src="<?php echo e(URL::asset('build/libs/swiper/swiper-bundle.min.js')); ?>"></script>
 <!-- dashboard init -->
 <script>
-/*
-Template Name: Velzon - Admin & Dashboard Template
-Author: Themesbrand
-Website: https://Themesbrand.com/
-Contact: Themesbrand@gmail.com
-File: Ecommerce Dashboard init js
-*/
-
-// get colors array from the string
 function getChartColorsArray(chartId) {
     if (document.getElementById(chartId) !== null) {
         var colors = document.getElementById(chartId).getAttribute("data-colors");
@@ -1049,8 +1013,8 @@ if (linechartcustomerColors) {
 var chartDonutBasicColors = getChartColorsArray("store-visits-source");
 if (chartDonutBasicColors) {
     var options = {
-        series: [<?php echo e($percentage_operasional); ?>,30,10,40],
-        labels: ["Pakaian", "Operasional", "Hiburan", "Lain Lain"],
+        series: [<?php echo e($percentage_belanja); ?>,<?php echo e($percentage_operasional); ?>,<?php echo e($percentage_hiburan); ?>,<?php echo e($percentage_lain); ?>],
+        labels: ["Belanja", "Operasional", "Hiburan", "Lain Lain"],
         chart: {
             height: 333,
             type: "donut",
@@ -1207,6 +1171,15 @@ window.addEventListener("load", function () {
 });
 </script>
 <script src="<?php echo e(URL::asset('build/js/app.js')); ?>"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    flatpickr('.dash-filter-picker', {
+        mode: 'range',
+        dateFormat: 'd M, Y',
+    });
+});
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/itvisi/Documents/walletwise/resources/views/index.blade.php ENDPATH**/ ?>

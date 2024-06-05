@@ -7,7 +7,7 @@
             Forms
         <?php $__env->endSlot(); ?>
         <?php $__env->slot('title'); ?>
-            Form layout
+            Pemasukan
         <?php $__env->endSlot(); ?>
     <?php echo $__env->renderComponent(); ?>
 
@@ -31,9 +31,9 @@
                                 <label for="description" class="form-label">Kategori</label>
                                         <select class="form-control" id="choices-single-no-sorting"
                                             name="kategori" data-choices data-choices-sorting-false>
-                                            <option value="operasional">Operasional</option>
-                                            <option value="hiburan">Hiburan</option>
-                                            <option value="belanja">Belanja</option>
+                                            <option value="Pendapatan Utama">Pendapatan Utama</option>
+                                            <option value="Investasi">Investasi</option>
+                                            <option value="Penjualan">Penjualan</option>
                                             <option value="lain-lain">Lain-Lain</option>
                                         </select>
                             </div>

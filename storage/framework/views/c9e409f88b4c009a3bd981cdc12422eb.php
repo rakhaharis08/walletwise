@@ -32,19 +32,13 @@
             </div>
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span><?php echo app('translator')->get('translation.menu'); ?></span></li>
+        
+
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="ri-dashboard-2-line"></i> <span><?php echo app('translator')->get('translation.dashboards'); ?></span>
+                    <a class="nav-link menu-link" href="index">
+                        <i class="ri-dashboard-line"></i> <span>Dashboard</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarDashboards">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="index" class="nav-link">Home</a>
-                            </li>
-                           
-                        </ul>
-                    </div>
-                </li> <!-- end Dashboard Menu -->
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="pemasukkan">
@@ -53,8 +47,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="pengeluaran">
+                <a class="nav-link menu-link" href="pengeluaran">
                         <i class="ri-money-dollar-box-line"></i> <span>Pengeluaran</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link menu-link" href="tagihan">
+                        <i class="ri-money-dollar-box-line"></i> <span>Tagihan</span>
                     </a>
                 </li>
 

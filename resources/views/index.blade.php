@@ -87,7 +87,7 @@ Dashboard WalletWise
                             <div class="d-flex align-items-end justify-content-between mt-4">
                                 <div>
                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="{{$pemasukan}}">0</span></h4>
-                                    <a href="" class="text-decoration-underline">Lihat Data <br>Pemasukan</a>
+                                    <a href="pemasukkan" class="text-decoration-underline">Lihat Data <br>Pemasukan</a>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-soft-primary rounded fs-3">
@@ -113,7 +113,7 @@ Dashboard WalletWise
                                 <div>
                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="{{$pengeluaran}}">0</span>
                                     </h4>
-                                    <a href="" class="text-decoration-underline">Lihat Data Pengeluaran</a>
+                                    <a href="pengeluaran" class="text-decoration-underline">Lihat Data Pengeluaran</a>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-soft-primary rounded fs-3">
@@ -139,7 +139,7 @@ Dashboard WalletWise
                                 <div>
                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">RP.<span class="counter-value" data-target="{{$tagihan}}">0</span>
                                     </h4>
-                                    <a href="" class="text-decoration-underline">Lihat Data <br>Tagihan</a>
+                                    <a href="tagihan" class="text-decoration-underline">Lihat Data <br>Tagihan</a>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-soft-primary rounded fs-3">
@@ -297,34 +297,6 @@ Dashboard WalletWise
                                     </tbody>
                                 </table><!-- end table -->
                             </div>
-
-                            <div class="align-items-center mt-4 pt-2 justify-content-between row text-center text-sm-start">
-                                <div class="col-sm">
-                                    <div class="text-muted">
-                                        Showing <span class="fw-semibold">5</span> of <span class="fw-semibold">25</span> Results
-                                    </div>
-                                </div>
-                                <div class="col-sm-auto  mt-3 mt-sm-0">
-                                    <ul class="pagination pagination-separated pagination-sm mb-0 justify-content-center">
-                                        <li class="page-item disabled">
-                                            <a href="#" class="page-link">←</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a href="#" class="page-link">1</a>
-                                        </li>
-                                        <li class="page-item active">
-                                            <a href="#" class="page-link">2</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a href="#" class="page-link">3</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a href="#" class="page-link">→</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
                         </div> <!-- .card-body-->
                     </div> <!-- .card-->
                 </div> <!-- .col-->

@@ -1,5 +1,5 @@
 <?php $__env->startSection('title'); ?>
-    Tambah Data Pengeluaran
+    Tambah Data Pemasukan
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
     <?php $__env->startComponent('components.breadcrumb'); ?>
@@ -7,7 +7,7 @@
             Forms
         <?php $__env->endSlot(); ?>
         <?php $__env->slot('title'); ?>
-            Pengeluaran
+            Tagihan
         <?php $__env->endSlot(); ?>
     <?php echo $__env->renderComponent(); ?>
 
@@ -15,11 +15,11 @@
         <div class="col-xxl-6">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Tambah Data Pengeluaran</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">Tambah Data Tagihan</h4>
                 </div><!-- end card header -->
                 <div class="card-body">
                     <div class="live-preview">
-                        <form method="post" action="/tambah-pengeluaran/store" data-toggle="validator">
+                        <form method="post" action="/tambah-tagihan/store" data-toggle="validator">
                             <?php echo e(csrf_field()); ?>
 
                             <div class="mb-3">
@@ -31,19 +31,19 @@
                                 <label for="description" class="form-label">Kategori</label>
                                         <select class="form-control" id="choices-single-no-sorting"
                                             name="kategori" data-choices data-choices-sorting-false>
-                                            <option value="Operasional">Operasional</option>
-                                            <option value="Hiburan">Hiburan</option>
-                                            <option value="Belanja">Belanja</option>
+                                            <option value="operasional">Operasional</option>
+                                            <option value="hiburan">Hiburan</option>
+                                            <option value="belanja">Belanja</option>
                                             <option value="lain-lain">Lain-Lain</option>
                                         </select>
                             </div>
                             <div class="mb-3">
-                                <label for="harga" class="form-label">Harga</label>
+                                <label for="harga" class="form-label">Nominal</label>
                                 <input type="text" name="harga" class="form-control" id="harga"
-                                    placeholder="Masukkan Harga Produk">
+                                    placeholder="Masukkan Nominal">
                             </div>
                             <div class="mb-3">
-                                <label for="harga" class="form-label">Tanggal Pembelian</label>
+                                <label for="harga" class="form-label">Jatuh Tempo</label>
                                 <input type="date" name="date" class="form-control" id="date">
                             </div>
                             <div class="text-end">
@@ -61,4 +61,4 @@
     <script src="<?php echo e(URL::asset('build/js/app.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/itvisi/Documents/walletwise/resources/views/pengeluaran/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/itvisi/Documents/walletwise/resources/views/tagihan/create.blade.php ENDPATH**/ ?>

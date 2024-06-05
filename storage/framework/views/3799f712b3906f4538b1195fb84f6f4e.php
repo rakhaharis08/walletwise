@@ -11,7 +11,7 @@
             Tables
         <?php $__env->endSlot(); ?>
         <?php $__env->slot('title'); ?>
-            Grid Js
+            Pemasukan
         <?php $__env->endSlot(); ?>
     <?php echo $__env->renderComponent(); ?>
     <?php if(Session::has('success.message')): ?>
@@ -58,7 +58,7 @@
         new gridjs.Grid({
             columns: [{
                     name: 'ID',
-                    width: '80px',
+                    width: '50px',
                     formatter: (function (cell) {
                         return gridjs.html('<span class="fw-semibold">' + cell + '</span>');
                     })
@@ -82,11 +82,7 @@
                 {
                     name: 'Actions',
                     width: '150px',
-                    formatter: (function (cell) {
-                        return gridjs.html("<a href='hapus-pemasukan' class='text-reset text-decoration-underline'>" +
-                            "Hapus" +
-                            "</a>");
-                    })
+                    formatter: (cell) => gridjs.html('<a href="hapus-pemasukan/' + cell + '"><button class="btn btn-primary waves-effect waves-light">Hapus</button></a>')
                 },
             ],
             pagination: {
@@ -96,7 +92,7 @@
             search: true,
             data: [
                 <?php $__currentLoopData = $pemasukan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                [counter++,"<?php echo e($row->description); ?>","<?php echo e($row->category); ?>","Rp. <?php echo e(number_format($row->amount)); ?>","<?php echo e($row->date); ?>"],
+                [counter++, "<?php echo e($row->description); ?>", "<?php echo e($row->category); ?>", "Rp. <?php echo e(number_format($row->amount)); ?>", "<?php echo e($row->date); ?>", "<?php echo e($row->id); ?>"],
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             ]
         }).render(document.getElementById("table-gridjs"));
