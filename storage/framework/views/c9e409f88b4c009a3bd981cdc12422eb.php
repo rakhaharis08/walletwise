@@ -48,7 +48,7 @@
 
                 <li class="nav-item">
                 <a class="nav-link menu-link" href="pengeluaran">
-                        <i class="ri-money-dollar-box-line"></i> <span>Pengeluaran</span>
+                    <i class="ri-money-dollar-circle-line"></i><span>Pengeluaran</span>
                     </a>
                 </li>
 
