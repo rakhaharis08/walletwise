@@ -185,12 +185,6 @@ Dashboard WalletWise
                                 <!--end col-->
                             </div>
                         </div><!-- end card header -->
-
-                        <div class="card-body p-0 pb-2">
-                            <div class="w-150">
-                                <div id="customer_impression_charts" data-colors='["--vz-info", "--vz-primary", "--vz-danger"]' class="apex-charts" dir="ltr"></div>
-                            </div>
-                        </div><!-- end card body -->
                     </div><!-- end card -->
                 </div><!-- end col -->
                 <!-- end col -->

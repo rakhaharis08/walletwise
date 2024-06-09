@@ -43,7 +43,7 @@
                                     placeholder="Masukkan Harga Produk">
                             </div>
                             <div class="mb-3">
-                                <label for="harga" class="form-label">Tanggal Pembelian</label>
+                                <label for="harga" class="form-label">Tanggal Pemasukan</label>
                                 <input type="date" name="date" class="form-control" id="date">
                             </div>
                             <div class="text-end">

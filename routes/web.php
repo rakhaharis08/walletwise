@@ -38,9 +38,4 @@ Route::post('/tambah-tagihan/store', [App\Http\Controllers\TagihanController::cl
 Route::get('/hapus-tagihan/{id}', [App\Http\Controllers\TagihanController::class, 'delete'])->name('pemasukan');
 Route::get('/bayar-tagihan/{id}', [App\Http\Controllers\TagihanController::class, 'pay'])->name('pemasukan');
 
-
-//Update User Details
-Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
-Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
-
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');

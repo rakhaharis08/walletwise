@@ -28,10 +28,8 @@ class TagihanController extends Controller
                 'date' => $request->date,
                 'status' => 0,
             ]);
-            \Session::flash('success.message', 'Success to Add');
             return redirect('/tagihan');
 		} catch(\Exception $e) {
-        	\Session::flash('error.message', 'Failed to Add');
             return redirect('/tagihan');
         }
     }	

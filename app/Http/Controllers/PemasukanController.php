@@ -25,10 +25,8 @@ class PemasukanController extends Controller
                 'category' => $request->kategori,
                 'date' => $request->date,
             ]);
-            \Session::flash('success.message', 'Success to Add');
             return redirect('/pemasukkan');
 		} catch(\Exception $e) {
-        	\Session::flash('error.message', 'Failed to Add');
             return redirect('/pemasukan');
         }
     }	
