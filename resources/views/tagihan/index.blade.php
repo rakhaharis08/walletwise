@@ -105,7 +105,7 @@
                     @if($row->status == 0)
                         [counter++, "{{$row->description}}", "{{$row->category}}", "Rp. {{number_format($row->amount)}}", "{{$row->date}}", "Belum Lunas", "{{$row->id}}", "{{$row->id}}"],
                     @else
-                        [counter++, "{{$row->description}}", "{{$row->category}}", "Rp. {{number_format($row->amount)}}", "{{$row->date}}", "Lunas", "-", "-"],
+                        [counter++, "{{$row->description}}", "{{$row->category}}", "Rp. {{number_format($row->amount)}}", "{{$row->date}}", "Lunas", "{{$row->id}}", "-"],
                     @endif
                 @endforeach
             ]

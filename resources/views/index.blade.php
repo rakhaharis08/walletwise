@@ -304,7 +304,7 @@ Dashboard WalletWise
                         </div><!-- end card header -->
 
                         <div class="card-body">
-                            <div id="store-visits-source" data-colors='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]' class="apex-charts" dir="ltr"></div>
+                            <div id="pengeluaran-kategori" data-colors='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]' class="apex-charts" dir="ltr"></div>
                         </div>
                     </div> <!-- .card-->
                 </div> <!-- .col-->
@@ -1003,7 +1003,7 @@ if (linechartcustomerColors) {
 }
 
 // Simple Donut Charts
-var chartDonutBasicColors = getChartColorsArray("store-visits-source");
+var chartDonutBasicColors = getChartColorsArray("pengeluaran-kategori");
 if (chartDonutBasicColors) {
     var options = {
         series: [{{$percentage_belanja}},{{$percentage_operasional}},{{$percentage_hiburan}},{{$percentage_lain}}],
@@ -1027,7 +1027,7 @@ if (chartDonutBasicColors) {
     };
 
     var chart = new ApexCharts(
-        document.querySelector("#store-visits-source"),
+        document.querySelector("#pengeluaran-kategori"),
         options
     );
     chart.render();

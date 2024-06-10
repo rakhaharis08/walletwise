@@ -104,7 +104,7 @@
                     <?php if($row->status == 0): ?>
                         [counter++, "<?php echo e($row->description); ?>", "<?php echo e($row->category); ?>", "Rp. <?php echo e(number_format($row->amount)); ?>", "<?php echo e($row->date); ?>", "Belum Lunas", "<?php echo e($row->id); ?>", "<?php echo e($row->id); ?>"],
                     <?php else: ?>
-                        [counter++, "<?php echo e($row->description); ?>", "<?php echo e($row->category); ?>", "Rp. <?php echo e(number_format($row->amount)); ?>", "<?php echo e($row->date); ?>", "Lunas", "-", "-"],
+                        [counter++, "<?php echo e($row->description); ?>", "<?php echo e($row->category); ?>", "Rp. <?php echo e(number_format($row->amount)); ?>", "<?php echo e($row->date); ?>", "Lunas", "<?php echo e($row->id); ?>", "-"],
                     <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             ]

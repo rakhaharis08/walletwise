@@ -15,22 +15,28 @@ class DashboardController extends Controller
         $endofmonth = Carbon::now()->endOfMonth()->format('d M, Y');
     
         $pemasukan = Pemasukan::whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])->sum('amount');
+        
         $pengeluaran = Pengeluaran::whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])->sum('amount');
         if ($pemasukan > 0) {
             $defisit = ($pengeluaran / $pemasukan) * 100;
         } else {
             $defisit = 0;
         }
+
         $tagihan = Tagihan::where('status', 0)->sum('amount');
+        
         $dompet = $pemasukan - $pengeluaran;
+        
         $top_spending = Pengeluaran::whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])
         ->orderBy('amount', 'desc')
         ->limit(5)
         ->get();
+
         $top_income = Pemasukan::whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])
         ->orderBy('amount', 'desc')
         ->limit(5)
         ->get();
+        
         $recent_purchases = Pengeluaran::whereBetween('date', [Carbon::now()->firstOfMonth(), Carbon::now()])
         ->orderBy('date', 'desc')
         ->limit(5)
